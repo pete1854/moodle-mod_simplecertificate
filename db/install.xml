@@ -43,6 +43,13 @@
         <FIELD NAME="secondpagetextformat" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="secondimage" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="timestartdatefmt" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="bidsupport" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Flag for indicating support for BankID signing, or not"/>
+        <FIELD NAME="bid_teacher_must_sign" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="bid_service_url" TYPE="text" LENGTH="255" NOTNULL="false" DEFAULT="https://appapi2.test.bankid.com" SEQUENCE="false" COMMENT="BankID Web service URL. Test: https://appapi2.test.bankid.com Prod: https://appapi2.bankid.com"/>
+        <FIELD NAME="bid_service_auth" TYPE="text" LENGTH="255" NOTNULL="false" DEFAULT="/rp/v5.1/auth" SEQUENCE="false" COMMENT="Auth function enpoint"/>
+        <FIELD NAME="bid_service_sign" TYPE="text" LENGTH="255" NOTNULL="false" DEFAULT="/rp/v5.1/sign" SEQUENCE="false" COMMENT="Sign function enpoint"/>
+        <FIELD NAME="bid_service_collect" TYPE="text" LENGTH="255" NOTNULL="false" DEFAULT="/rp/v5.1/collect" SEQUENCE="false" COMMENT="Collect function enpoint"/>
+        <FIELD NAME="bid_service_cancel" TYPE="text" LENGTH="255" NOTNULL="false" DEFAULT="/rp/v5.1/cancel" SEQUENCE="false" COMMENT="Cancel function enpoint"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
@@ -63,6 +70,11 @@
         <FIELD NAME="haschange" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
         <FIELD NAME="pathnamehash" TYPE="char" LENGTH="40" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="coursename" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT="--" SEQUENCE="false"/>
+        <FIELD NAME="s_ssn" TYPE="char" LENGTH="12" NOTNULL="false" SEQUENCE="false" COMMENT="Student SSN used for signing this certificate"/>
+        <FIELD NAME="t_ssn" TYPE="char" LENGTH="12" NOTNULL="false" SEQUENCE="false" COMMENT="Teacher SSN used for signing this certificate"/>
+        <FIELD NAME="uvd" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" COMMENT="userVisibleData (base64) used when signing this certificate"/>
+        <FIELD NAME="unvd" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" COMMENT="userNonVisibleData (base64) used when signing this certificate"/>
+        <FIELD NAME="cd" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" COMMENT="completionData (json) from successful sign operation"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
