@@ -28,6 +28,11 @@ defined('MOODLE_INTERNAL') || die;
 if ($ADMIN->fulltree) {
     require_once("$CFG->dirroot/mod/simplecertificate/lib.php");
 
+    $yesnooptions = [
+        0 => get_string('no'),
+        1 => get_string('yes'),
+    ];
+
     // General settings.
     $settings->add(new admin_setting_configtext('simplecertificate/width', get_string('defaultwidth', 'simplecertificate'),
         get_string('size_help', 'simplecertificate'), 297, PARAM_INT));
@@ -66,6 +71,28 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configtext('simplecertificate/perpage', get_string('defaultperpage', 'simplecertificate'),
             get_string('defaultperpage_help', 'simplecertificate'), 30, PARAM_INT));
 
+    // BID settings
+    $settings->add(new admin_setting_configselect('simplecertificate/bidsupport', 
+        get_string('bidsupport', 'simplecertificate'), get_string('bidsupport_help', 'simplecertificate'), 0, $yesnooptions));
+    $settings->add(new admin_setting_configselect('simplecertificate/bid_teacher_must_sign',
+        get_string('bid_teacher_must_sign', 'simplecertificate'), get_string('bid_teacher_must_sign_help', 'simplecertificate'), 0, $yesnooptions));
+    $settings->add(new admin_setting_configselect('simplecertificate/bid_student_must_sign',
+            get_string('bid_student_must_sign', 'simplecertificate'), get_string('bid_student_must_sign_help', 'simplecertificate'), 0, $yesnooptions));
+        
+    $settings->add(new admin_setting_configcheckbox('simplecertificate/bid_service_url',
+            get_string('bid_service_url', 'simplecertificate'), get_string('bid_service_url_help', 'simplecertificate'), 'PARAM_TEXT', ''));
+    
+    $settings->add(new admin_setting_configcheckbox('simplecertificate/bid_service_auth',
+            get_string('bid_service_auth', 'simplecertificate'), get_string('bid_service_auth_help', 'simplecertificate'), 'PARAM_TEXT', ''));
+    
+    $settings->add(new admin_setting_configcheckbox('simplecertificate/bid_service_sign',
+            get_string('bid_service_sign', 'simplecertificate'), get_string('bid_service_sign_help', 'simplecertificate'), 'PARAM_TEXT', ''));
+
+    $settings->add(new admin_setting_configcheckbox('simplecertificate/bid_service_collect',
+            get_string('bid_service_collect', 'simplecertificate'), get_string('bid_service_collect_help', 'simplecertificate'), 'PARAM_TEXT', ''));
+
+    $settings->add(new admin_setting_configcheckbox('simplecertificate/bid_service_cancel',
+            get_string('bid_service_cancel', 'simplecertificate'), get_string('bid_service_cancel_help', 'simplecertificate'), 'PARAM_TEXT', ''));
 
 }
 

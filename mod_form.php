@@ -243,6 +243,26 @@ class mod_simplecertificate_mod_form extends moodleform_mod {
             $mform->addHelpButton('reportcert', 'reportcert', 'simplecertificate');
         }
 
+        if (has_capability('mod/simplecertificate:managebidsupport', $this->get_context())) {
+            $mform->addElement('selectyesno', 'bidsupport', get_string('bidsupport', 'simplecertificate'));
+            $mform->addHelpButton('bidsupport', 'bidsupport', 'simplecertificate');
+            $mform->setDefault('bidsupport', get_config('simplecertificate', 'bidsupport'));
+            $mform->setType('bidsupport', PARAM_INT);
+            $firstoption = empty($firstoption) ? 'bidsupport' : $firstoption;
+            // Teacher must sign
+            $mform->addElement('selectyesno', 'bid_teacher_must_sign', get_string('bid_teacher_must_sign', 'simplecertificate'));
+            $mform->addHelpButton('bid_teacher_must_sign', 'bid_teacher_must_sign', 'simplecertificate');
+            $mform->setDefault('bid_teacher_must_sign', get_config('simplecertificate', 'bid_teacher_must_sign'));
+            $mform->setType('bid_teacher_must_sign', PARAM_INT);
+            $firstoption = empty($firstoption) ? 'bid_teacher_must_sign' : $firstoption;
+            // Student must sign
+            $mform->addElement('selectyesno', 'bid_student_must_sign', get_string('bid_student_must_sign', 'simplecertificate'));
+            $mform->addHelpButton('bid_student_must_sign', 'bid_student_must_sign', 'simplecertificate');
+            $mform->setDefault('bid_student_must_sign', get_config('simplecertificate', 'bid_student_must_sign'));
+            $mform->setType('bid_student_must_sign', PARAM_INT);
+            $firstoption = empty($firstoption) ? 'bid_student_must_sign' : $firstoption;
+        }
+
         $this->standard_coursemodule_elements();
         $this->add_action_buttons();
     }
@@ -347,6 +367,14 @@ class mod_simplecertificate_mod_form extends moodleform_mod {
                 $data->secondimage = null;
 
         }
+
+        if (!empty($data->add)) {
+            foreach ($this->get_options_elements_with_required_caps() as $name => $capability) {
+                if (!isset($data->$name) && !has_capability($capability, $this->get_context())) {
+                    $data->$name = get_config('simplecertificate', $name);
+                }
+            }
+        }
     }
 
     /**
@@ -387,6 +415,19 @@ class mod_simplecertificate_mod_form extends moodleform_mod {
 
         return array('subdirs' => 0, 'maxbytes' => $COURSE->maxbytes, 'maxfiles' => 1,
                 'accepted_types' => array('image'));
+    }
+
+    /**
+     * Get a list of all options form elements with required capabilities for managing each element.
+     *
+     * @return array
+     */
+    protected function get_options_elements_with_required_caps() {
+        return [
+            'bidsupport' => 'mod/simplecertificate:managebidsupport',
+            'bid_teacher_must_sign' => 'mod/simplecertificate:managebidsupport',
+            'bid_student_must_sign' => 'mod/simplecertificate:managebidsupport'
+        ];
     }
 
 }

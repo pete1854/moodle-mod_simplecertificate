@@ -633,6 +633,10 @@ class simplecertificate {
                 if (!empty($this->get_instance()->emailothers)) {
                     $this->send_alert_email_others();
                 }
+
+                if (!empty($this->get_instance()->bidsupport)) {
+                   $this->sign_certificate();
+                }
             }
         }
 
@@ -905,6 +909,15 @@ class simplecertificate {
             $others = explode(',', $this->get_instance()->emailothers);
             if ($others) {
                 $this->send_alert_emails($others);
+            }
+        }
+    }
+
+    protected function sign_certificate() {
+        if (!empty($this->get_instance()->bidsupport)) {
+            if($this->get_instance()->bidsupport)
+            {
+                
             }
         }
     }
@@ -2050,6 +2063,9 @@ class simplecertificate {
             $tablebutton = new html_table();
             $tablebutton->attributes['class'] = 'downloadreport';
 
+            $btnsigncertificate = $OUTPUT->single_button(
+                $url->out_as_local_url(false, array('action' => 'sign', 'type' => '*')),
+                get_string("signcertificatebuttontext", 'simplecertificate'));
             $deleteselectedbutton = $OUTPUT->single_button(
                             $url->out_as_local_url(false, array('action' => 'delete', 'type' => 'selected')),
                             get_string('deleteselected', 'simplecertificate'));
@@ -2065,7 +2081,8 @@ class simplecertificate {
             $btndownloadtxt = $OUTPUT->single_button(
                             $url->out_as_local_url(false, array('action' => 'download', 'type' => 'txt')),
                             get_string("downloadtext"));
-            $tablebutton->data[] = array($deleteselectedbutton,
+            $tablebutton->data[] = array($btnsigncertificate,
+                                    $deleteselectedbutton,
                                    $deleteallbutton,
                                    $btndownloadods,
                                    $btndownloadxls,
@@ -2084,6 +2101,8 @@ class simplecertificate {
             $url->remove_params('action', 'type', 'selectedusers');
             // Override $users param if no user are selected, but clicks in delete selected.
             switch ($action) {
+                case 'sign':
+                break;
                 case 'delete':
                     switch ($type) {
                         case  'all':

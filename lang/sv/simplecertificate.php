@@ -23,6 +23,34 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+// Start BID strings
+
+$string['bidsupport'] = 'Signera med BankID';
+$string['bid_teacher_must_sign'] = 'Hansdledare måste signera';
+$string['bid_student_must_sign'] = 'Kursdeltagare måste signera';
+$string['bidsupport_help'] = 'Om detta alternativ är aktivt behöver certifikat signeras med BankID innan de kan utfärdas';
+$string['bid_teacher_must_sign_help'] = 'Om detta alternativ är aktivt behöver certifikat signeras av handledaren med BankID innan de kan utfärdas';
+$string['bid_student_must_sign_help'] = 'Om detta alternativ är aktivt behöver certifikat signeras av kursdeltagaren med BankID innan de kan utfärdas';
+$string['simplecertificate:managebidsupport'] = 'Hantera inställningar för BankID';
+$string['signcertificatebuttontext'] = 'Signera certifikat';
+
+$string['bid_service_url'] = 'BankID service URL';
+$string['bid_service_url_help'] = 'URL till BankID API';
+
+$string['bid_service_auth'] = 'Ändpunkt för autenticering';
+$string['bid_service_auth_help'] = 'Ändpunkt för autenticering';
+
+$string['bid_service_sign'] = 'Ändpunkt för signering';
+$string['bid_service_sign_help'] = 'Ändpunkt för signering';
+
+$string['bid_service_collect'] = 'Ändpunkt för svar';
+$string['bid_service_collect_help'] = 'Ändpunkt för svar';
+
+$string['bid_service_cancel'] = 'Ändpunkt för avbrott';
+$string['bid_service_cancel_help'] = 'Signera certifikat';
+
+// End BID strings
+
 $string['modulename'] = 'Simple Certificate';
 $string['modulenameplural'] = 'Simple Certificates';
 $string['pluginname'] = 'Simple Certificate';
