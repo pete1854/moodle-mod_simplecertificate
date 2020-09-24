@@ -234,7 +234,7 @@ $string['qrcodefirstpage_help'] = 'Print QR Code in the first page';
 // Tabs String.
 $string['standardview'] = 'Utfärda ett testcertifikat';
 $string['issuedview'] = 'Utfärdade certifikat';
-$string['bulkview'] = 'Bulk operations';
+$string['bulkview'] = 'Signera certifikat';
 
 $string['cantissue'] = 'The certificate can\'t be issued, because the user hasn\'t met activity conditions';
 
@@ -245,7 +245,7 @@ $string['sendtoemail'] = 'Skicka till användarens E-postadress';
 $string['showusers'] = 'Visa';
 $string['completedusers'] = 'Användare som uppfyllde villkoren för slutförande';
 $string['allusers'] = 'Alla användare';
-$string['bulkaction'] = 'Choose a Bulk Operation';
+$string['bulkaction'] = 'Välj vad du vill göra';
 $string['bulkbuttonlabel'] = 'Skicka';
 $string['emailsent'] = 'E-postmeddelandena har skickats';
 $string['signcertificate'] = 'Signera certifikaten';
@@ -276,10 +276,10 @@ $string['upgradeerror'] = 'Error while upgrading $a';
 $string['notreceived'] = 'No issued certificate';
 
 // Verify envent.
-$string['eventcertificate_verified'] = 'Certificate verified';
-$string['eventcertificate_verified_description'] = 'The user with id {$a->userid} verified the certificate with id {$a->certificateid}, issued to user with id {$a->certiticate_userid}.';
-$string['deleteall'] = "Delete All";
-$string['deleteselected'] = "Delete Selected";
+$string['eventcertificate_verified'] = 'Certifikatet verifierades';
+$string['eventcertificate_verified_description'] = 'Användaren med id {$a->userid} verifierade certifikatet med id {$a->certificateid}, utfärdat till användare med id {$a->certiticate_userid}.';
+$string['deleteall'] = "Ta bort alla";
+$string['deleteselected'] = "Ta bort valda";
 
 
 
