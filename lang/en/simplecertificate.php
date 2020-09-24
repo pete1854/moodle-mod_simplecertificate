@@ -249,6 +249,9 @@ $string['allusers'] = 'All users';
 $string['bulkaction'] = 'Choose a Bulk Operation';
 $string['bulkbuttonlabel'] = 'Send';
 $string['emailsent'] = 'The emails have been sent';
+$string['signcertificate'] = 'Sign certificates';
+$string['certificatessigned'] = 'Certificates signed';
+
 
 $string['issueddownload'] = 'Issued certificate [id: {$a}] downloaded';
 

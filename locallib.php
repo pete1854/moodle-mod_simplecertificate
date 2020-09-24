@@ -2321,7 +2321,9 @@ class simplecertificate {
 
             $selectoptions = array('pdf' => get_string('onepdf', 'simplecertificate'),
                     'zip' => get_string('multipdf', 'simplecertificate'),
-                    'email' => get_string('sendtoemail', 'simplecertificate'));
+                    'email' => get_string('sendtoemail', 'simplecertificate'),
+                    'sign' => get_string('signcertificate', 'simplecertificate')
+                );
             echo html_writer::select($selectoptions, 'type', $type);
             $table = new html_table();
             $table->width = "95%";
@@ -2406,6 +2408,23 @@ class simplecertificate {
                     }
                     $url->remove_params('action', 'type');
                     redirect($url, get_string('emailsent', 'simplecertificate'), 5);
+                 break;
+
+                 //Here we call BID to sign all selected certificates
+                 case 'sign':
+                    foreach ($users as $user) {
+                        /*$canissue = $this->can_issue($user, $issuelist != 'allusers');
+                        if (empty($canissue)) {
+                            $issuedcert = $this->get_issue($user);
+                            if ($this->get_issue_file($issuedcert)) {
+                                $this->send_certificade_email($issuedcert);
+                            } else {
+                                print_error('filenotfound', 'simplecertificate');
+                            }
+                        }*/
+                    }
+                    $url->remove_params('action', 'type');
+                    redirect($url, get_string('certificatessigned', 'simplecertificate'), 5);
                  break;
 
                 // One pdf with all certificates.

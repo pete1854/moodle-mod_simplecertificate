@@ -248,6 +248,9 @@ $string['allusers'] = 'Alla användare';
 $string['bulkaction'] = 'Choose a Bulk Operation';
 $string['bulkbuttonlabel'] = 'Skicka';
 $string['emailsent'] = 'E-postmeddelandena har skickats';
+$string['signcertificate'] = 'Signera certifikaten';
+$string['certificatessigned'] = 'Certifikaten har signerats';
+
 
 $string['issueddownload'] = 'Utfärdat certifikat [id: {$a}] har laddats ned';
 
@@ -256,7 +259,7 @@ $string['defaultperpage_help'] = 'Antal certifikat att visa per sida (max. 200)'
 
 // For Capabilities.
 $string['simplecertificate:addinstance'] = "Lägg till certifikatsaktivitet";
-$string['simplecertificate:manage'] = "HAntera aktivitet";
+$string['simplecertificate:manage'] = "Hantera aktivitet";
 $string['simplecertificate:view'] = "Visa aktivitet";
 
 $string['usercontextnotfound'] = 'User context not found';

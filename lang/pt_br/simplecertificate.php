@@ -262,6 +262,8 @@ $string['allusers'] = 'Todos os usuários';
 $string['bulkaction'] = 'Escolha a operação em lote';
 $string['bulkbuttonlabel'] = 'Enviar';
 $string['emailsent'] = 'Os emails foram enviados';
+$string['signcertificate'] = 'Sign certificates';
+$string['certificatessigned'] = 'Certificates signed';
 
 $string['issueddownload'] = 'Certificado [id: {$a}] baixado';
 $string['defaultperpage'] = 'Por página';
